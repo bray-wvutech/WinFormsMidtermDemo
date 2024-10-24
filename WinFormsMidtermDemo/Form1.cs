@@ -246,14 +246,15 @@ public partial class Form1 : Form
         }
     }
 
-    private struct PhoneBookEntry
+    public struct PhoneBookEntry
     {
         public string name;
         public string phone;
     }
 
     private const string PHONE_BOOK_PATH = @"C:\Users\bray_\source\repos\2024 fall c sharp class\WinFormsMidtermDemo\WinFormsMidtermDemo\hands\TextFile1.txt";
-    private List<PhoneBookEntry> entries = new List<PhoneBookEntry>();
+    //private List<PhoneBookEntry> entries = new List<PhoneBookEntry>();
+    private Dictionary<string, PhoneBookEntry> entries = new Dictionary<string, PhoneBookEntry>();
 
     private void LoadPhoneBook()
     {
@@ -270,7 +271,7 @@ public partial class Form1 : Form
                         PhoneBookEntry entry = new();
                         entry.name = tokens[0];
                         entry.phone = tokens[1];
-                        entries.Add(entry);
+                        entries.Add(entry.name, entry);
                     }
                 }
             }
@@ -284,9 +285,9 @@ public partial class Form1 : Form
     private void EntriesToList()
     {
         personListBox.Items.Clear();
-        foreach (PhoneBookEntry entry in entries)
+        foreach (var entry in entries)
         {
-            personListBox.Items.Add(entry.name);
+            personListBox.Items.Add(entry.Value.name);
         }
     }
 
@@ -298,6 +299,33 @@ public partial class Form1 : Form
 
     private void personListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-        phoneLabel.Text = entries[personListBox.SelectedIndex].phone;
+        if (personListBox.SelectedItem != null)
+        {
+            PhoneBookEntry entry;
+            string? name = personListBox.SelectedItem.ToString();
+            if (!string.IsNullOrEmpty(name))
+            {
+                if (entries.TryGetValue(name, out entry))
+                {
+                    phoneLabel.Text = entry.phone;
+                }
+            }
+        }
+    }
+
+    private Dictionary<string, string> phoneBookDict = new Dictionary<string, string>()
+    {
+        { "Bill", "555-1234" },
+        { "Lisa", "555-6754" },
+        { "Ted", "555-9876" }
+    };
+
+    void DictTest()
+    {
+    }
+
+    private void dictTestButton_Click(object sender, EventArgs e)
+    {
+        DictTest();
     }
 }

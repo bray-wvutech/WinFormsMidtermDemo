@@ -45,6 +45,7 @@ partial class Form1
         personListBox = new ListBox();
         phoneLabel = new Label();
         phoneButton = new Button();
+        dictTestButton = new Button();
         ((System.ComponentModel.ISupportInitialize)cardPictureBox).BeginInit();
         SuspendLayout();
         // 
@@ -178,9 +179,9 @@ partial class Form1
         // 
         // cardPictureBox
         // 
-        cardPictureBox.Location = new Point(537, 46);
+        cardPictureBox.Location = new Point(353, 63);
         cardPictureBox.Name = "cardPictureBox";
-        cardPictureBox.Size = new Size(279, 295);
+        cardPictureBox.Size = new Size(136, 218);
         cardPictureBox.TabIndex = 8;
         cardPictureBox.TabStop = false;
         // 
@@ -190,9 +191,9 @@ partial class Form1
         // 
         // openButton
         // 
-        openButton.Location = new Point(369, 102);
+        openButton.Location = new Point(353, 14);
         openButton.Name = "openButton";
-        openButton.Size = new Size(94, 29);
+        openButton.Size = new Size(136, 29);
         openButton.TabIndex = 9;
         openButton.Text = "Open File";
         openButton.UseVisualStyleBackColor = true;
@@ -201,7 +202,7 @@ partial class Form1
         // personListBox
         // 
         personListBox.FormattingEnabled = true;
-        personListBox.Location = new Point(893, 46);
+        personListBox.Location = new Point(535, 63);
         personListBox.Name = "personListBox";
         personListBox.Size = new Size(150, 244);
         personListBox.TabIndex = 10;
@@ -210,15 +211,14 @@ partial class Form1
         // phoneLabel
         // 
         phoneLabel.BorderStyle = BorderStyle.FixedSingle;
-        phoneLabel.Location = new Point(1074, 159);
+        phoneLabel.Location = new Point(535, 328);
         phoneLabel.Name = "phoneLabel";
         phoneLabel.Size = new Size(149, 25);
         phoneLabel.TabIndex = 11;
-        phoneLabel.Text = "label1";
         // 
         // phoneButton
         // 
-        phoneButton.Location = new Point(893, 312);
+        phoneButton.Location = new Point(535, 14);
         phoneButton.Name = "phoneButton";
         phoneButton.Size = new Size(150, 29);
         phoneButton.TabIndex = 12;
@@ -226,11 +226,22 @@ partial class Form1
         phoneButton.UseVisualStyleBackColor = true;
         phoneButton.Click += phoneButton_Click;
         // 
+        // dictTestButton
+        // 
+        dictTestButton.Location = new Point(743, 92);
+        dictTestButton.Name = "dictTestButton";
+        dictTestButton.Size = new Size(94, 29);
+        dictTestButton.TabIndex = 13;
+        dictTestButton.Text = "Dict Test";
+        dictTestButton.UseVisualStyleBackColor = true;
+        dictTestButton.Click += dictTestButton_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1260, 409);
+        ClientSize = new Size(883, 409);
+        Controls.Add(dictTestButton);
         Controls.Add(phoneButton);
         Controls.Add(phoneLabel);
         Controls.Add(personListBox);
@@ -267,4 +278,5 @@ partial class Form1
     private ListBox personListBox;
     private Label phoneLabel;
     private Button phoneButton;
+    private Button dictTestButton;
 }
